@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- link rel="stylesheet" type="text/css" href="/static/bootstrap.css"/ -->
+    <!--link rel="stylesheet" type="text/css" href="/static/chatBot.css"/ -->
+    <!--link rel="stylesheet" type="text/css" href="/static/all.css"/ -->
+    <!--link rel="stylesheet" type="text/css" href="/static/style.css"-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <!--section class="msger">
+        <header class="msger-header">
+            <div class="msger-header-title">
+                <i class="fas fa-comment-al  t"></i> DaliaBot
+            </div>
+            <div class="msger-header-options">
+                <span><i class="fas fa-cog"></i></span>
+            </div>
+        </header>
+        <main class="msger-chat">
+            <div id="chatbox" class="msg left-msg">
+                <div class="msg-img"
+                     style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                        <div class="msg-info-name">BOT</div>
+                        <div class="msg-info-time">16:57</div>
+                    </div>
+                    <div class="msg-text">
+                        Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                    </div>
+                </div>
+            </div>
+            <div class="msg right-msg">
+                <div class="msg-img"
+                     style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
+                <div class="msg-bubble">
+                    <div class="msg-info">
+                        <div class="msg-info-name">Sajad</div>
+                        <div class="msg-info-time">12:46</div>
+                    </div>
+                    <div  class="msg-text">
+                        You can change your name in JS section!
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="userInput" class="msger-inputarea">
+            <input id="textInput" type="text" name="msg" class="msger-input" placeholder="Escribe tu mensaje...">
+            <input id="buttonInput" type="submit" class="msger-send-btn" value="Send" />
+        </div>
+    </section -->
+
+    <div id="chatbox">
+        <p class="botText"><span>Hola soy DaliaBot.</span></p>
+    </div>
+    <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+    </div>
+    <script>
+        function getBotResponse() {
+            var rawText = $("#textInput").val();
+            var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+            $("#textInput").val("");
+            $("#chatbox").append(userHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+            $.get("/get", {msg: rawText}).done(function (data) {
+                var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml);
+                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+            });
+        }
+
+        $("#textInput").keypress(function (e) {
+            if ((e.which == 13) && document.getElementById("textInput").value != "") {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function () {
+            if (document.getElementById("textInput").value != "") {
+                getBotResponse();
+            }
+        })
+    </script>
+</div>
+</body>
+</html>

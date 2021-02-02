@@ -1,0 +1,17 @@
+categories:
+- creditos
+conversations:
+- - Hola, me llamo
+  - Hola, ¿En qué puedo apoyarte?
+- - ¿Hacen prestamos?
+  - Si, nosotros ofrecemos créditos con descuento vía nómina
+- - ¿Qué requisitos piden para solicitar un crédito con ustedes?
+  - Identifiación oficial vigente, estado de cuenta no mayor a 3 meses, dos recibos de nómina y comprobante de domicilio
+- - ¿Cuánta es la cantidad máxima que pueden prestar?
+  - Los prestamos van desde $3,000 hasta $400,000 dependiendo el convenio ¿Deseas que te contacte con alguno de nuestros asesores?
+- - Si
+  - Por favor espera un momento, en breve te contactaré con uno de nuestros asesores
+- - No.
+  - ¿En qué mas puedo apoyarte?
+- - Sería todo, gracias por la información
+  - Estamos para servirle, gracias por contactar a credibot. ¡Que tenga un buen día!
